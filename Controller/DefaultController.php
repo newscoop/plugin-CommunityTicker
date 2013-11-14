@@ -21,8 +21,7 @@ class DefaultController extends Controller
      * @Template()
      */
     public function indexAction(Request $request)
-    {   
-        //$this->container->get('dispatcher')->dispatch('plugin.install.newscoop_ticker_plugin', new \Newscoop\EventDispatcher\Events\GenericEvent($this, array( 'plugin_name' => '' )));
+    {
         return array();
     }
 }

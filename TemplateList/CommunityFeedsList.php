@@ -23,7 +23,7 @@ class CommunityFeedsList extends BaseList
         foreach ($lists as $key => $feed) {
             $lists->items[$key] = new \MetaCommunityFeed($feed);
         }
-        
+
         return $lists;
     }
 
