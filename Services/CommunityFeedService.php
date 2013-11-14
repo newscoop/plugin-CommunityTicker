@@ -9,7 +9,7 @@
 namespace Newscoop\CommunityTickerBundle\Services;
 
 use Doctrine\ORM\EntityManager;
-use NNewscoop\CommunityTickerBundle\TemplateList\ListCriteria;
+use Newscoop\CommunityTickerBundle\TemplateList\ListCriteria;
 use Newscoop\CommunityTickerBundle\Entity\CommunityTickerEvent;
 use Symfony\Component\EventDispatcher\GenericEvent;
 /**
@@ -56,9 +56,9 @@ class CommunityFeedService
      * @param  Newscoop\CommunityTickerBundle\TemplateList\ListCriteria $criteria
      * @return Newscoop\ListResult;
      */
-    public function findBy(ListCriteria $criteria)
+    public function findByCriteria(ListCriteria $criteria)
     {
-        return $this->getRepository()->findBy($criteria);
+        return $this->getRepository()->getListByCriteria($criteria);
     }
 
    
@@ -70,7 +70,7 @@ class CommunityFeedService
      */
     public function countBy(array $criteria = array())
     {
-        return count($this->getRepository()->findBy($criteria));
+        return $this->getRepository()->findByCount($criteria);
     }
 
     /**

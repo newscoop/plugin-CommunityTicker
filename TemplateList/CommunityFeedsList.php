@@ -19,11 +19,11 @@ class CommunityFeedsList extends BaseList
     protected function prepareList($criteria)
     {   
         $service = \Zend_Registry::get('container')->get('newscoop_ticker_plugin.service');
-        $lists = $service->findBy($criteria);
-        foreach ($lists as $feed) {
+        $lists = $service->findByCriteria($criteria);
+        foreach ($lists as $key => $feed) {
             $lists->items[$key] = new \MetaCommunityFeed($feed);
         }
-
+        
         return $lists;
     }
 
@@ -34,7 +34,7 @@ class CommunityFeedsList extends BaseList
         parent::convertParameters($firstResult, $parameters);
 
         if (array_key_exists('length', $parameters)) {
-            $parameter = (int)$parameters['length'];
+            $parameter = (int) $parameters['length'];
             if ($parameter < 0) {
                 \CampTemplate::singleton()->trigger_error("invalid value $value of parameter $parameter in statement list_article_authors");
             }

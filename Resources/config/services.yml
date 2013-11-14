@@ -6,6 +6,15 @@ services:
         tags:
             - { name: kernel.event_subscriber}
 
+    newscoop.criteria.communityticker:
+        class: Newscoop\CommunityTickerBundle\TemplateList\ListCriteria
+
+    newscoop.template_lists.communityticker:
+        class:      Newscoop\CommunityTickerBundle\TemplateList\CommunityFeedsList
+        arguments:  ["@newscoop.criteria.communityticker"]
+        tags:
+            -  { name: newscoop.template_lists }
+
     newscoop_ticker_plugin.service:
         class:      Newscoop\CommunityTickerBundle\Services\CommunityFeedService
         arguments:  ["@em"]

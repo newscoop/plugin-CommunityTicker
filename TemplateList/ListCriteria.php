@@ -31,6 +31,16 @@ class ListCriteria extends Criteria
     public $event;
 
     /**
+     * @var int
+     */
+    public $firstResult;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var array
      */
     public $orderBy = array('created' => 'asc');
