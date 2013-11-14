@@ -1,0 +1,7 @@
+services:
+    newscoop_ticker_plugin.lifecyclesubscriber:
+        class: Newscoop\CommunityTickerBundle\EventListener\LifecycleSubscriber
+        arguments:
+            - @em
+        tags:
+            - { name: kernel.event_subscriber}

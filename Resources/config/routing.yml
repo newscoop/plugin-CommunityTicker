@@ -1,0 +1,4 @@
+newscoop_ticker_plugin:
+    resource: "@NewscoopCommunityTickerBundle/Controller/"
+    type:     annotation
+    prefix:   /
