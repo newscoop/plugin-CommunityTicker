@@ -60,12 +60,8 @@ class CommunityTickerEventRepository extends EntityRepository
         $countBuilder = clone $qb;
         $list->count = (int) $countBuilder->select('COUNT(ct)')->getQuery()->getSingleScalarResult();
 
-        if($criteria->firstResult != 0) {
-            $qb->setFirstResult($criteria->firstResult);
-        }
-
-        if($criteria->maxResults != 0) {
-            $qb->setMaxResults($criteria->maxResults);
+        if($criteria->length != 0) {
+            $qb->setMaxResults($criteria->length);
         }
         
         $metadata = $this->getClassMetadata();
