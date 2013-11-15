@@ -36,7 +36,7 @@ class CommunityFeedsList extends BaseList
         if (array_key_exists('length', $parameters)) {
             $parameter = (int) $parameters['length'];
             if ($parameter < 0) {
-                \CampTemplate::singleton()->trigger_error("invalid value $value of parameter $parameter in statement list_article_authors");
+                throw new \Exception("Invalid value of parameter \"length\" in statement list_community_ticker", 1);
             }
 
             $this->criteria->length = $parameter;

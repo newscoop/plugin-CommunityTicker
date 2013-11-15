@@ -21,7 +21,7 @@ class DefaultController extends Controller
      * @Template()
      */
     public function indexAction(Request $request)
-    {
+    {   
         return array();
     }
 }

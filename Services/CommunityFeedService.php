@@ -31,7 +31,7 @@ class CommunityFeedService
     /**
      * Update community ticker
      *
-     * @param  sfEvent $event
+     * @param  GenericEvent $event
      * @return void
      */
     public function update(GenericEvent $event)
@@ -53,8 +53,8 @@ class CommunityFeedService
     /**
      * Find by criteria
      *
-     * @param  Newscoop\CommunityTickerBundle\TemplateList\ListCriteria $criteria
-     * @return Newscoop\ListResult;
+     * @param  ListCriteria        $criteria
+     * @return Newscoop\ListResult
      */
     public function findByCriteria(ListCriteria $criteria)
     {

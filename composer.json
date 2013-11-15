@@ -1,5 +1,5 @@
 {
-    "name": "newscoop/community-ticker-plugin-bundle",
+    "name": "newscoop/community-ticker-plugin",
     "description": "Community ticker plugin bundle for Newscoop",
     "keywords": ["newscoop", "community", "cms", "integration", "plugin", "blog", "ticker"],
     "version": "0.2",
