@@ -15,7 +15,13 @@ use Newscoop\TemplateList\BaseList;
  */
 class CommunityFeedsList extends BaseList 
 {
-
+    /**
+     * Gets ListResult object with list elements
+     * 
+     * @param  Criteria $criteria
+     * 
+     * @return ListResult
+     */
     protected function prepareList($criteria)
     {   
         $service = \Zend_Registry::get('container')->get('newscoop_ticker_plugin.service');
@@ -27,6 +33,14 @@ class CommunityFeedsList extends BaseList
         return $lists;
     }
 
+    /**
+     * Converts parameters array to Criteria
+     * 
+     * @param  integer  $firstResult
+     * @param  array    $parameters
+     * 
+     * @return void
+     */
     protected function convertParameters($firstResult, $parameters)
     {
         $this->criteria->orderBy = array();
