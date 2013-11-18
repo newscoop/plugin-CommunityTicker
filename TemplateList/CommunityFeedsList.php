@@ -10,17 +10,15 @@ namespace Newscoop\CommunityTickerBundle\TemplateList;
 
 use Newscoop\ListResult;
 use Newscoop\TemplateList\BaseList;
+
 /**
  * Community Feeds List
  */
 class CommunityFeedsList extends BaseList 
 {
-
     /**
      * Gets ListResult object with list elements
      * 
-     * @param  integer  $firstResult
-     * @param  integer  $maxResults
      * @param  Criteria $criteria
      * 
      * @return ListResult
@@ -39,10 +37,10 @@ class CommunityFeedsList extends BaseList
     /**
      * Converts parameters array to Criteria
      * 
+     * @param  integer  $firstResult
      * @param  array    $parameters
-     * @param  Criteria $criteria
      * 
-     * @return Criteria
+     * @return void
      */
     protected function convertParameters($firstResult, $parameters)
     {

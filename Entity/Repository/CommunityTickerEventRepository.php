@@ -36,6 +36,7 @@ class CommunityTickerEventRepository extends EntityRepository
         }
 
         $this->getEntityManager()->persist($event);
+        $this->getEntityManager()->flush();
     }
 
     /**
