@@ -10,6 +10,7 @@ namespace Newscoop\CommunityTickerBundle\TemplateList;
 
 use Newscoop\ListResult;
 use Newscoop\TemplateList\BaseList;
+
 /**
  * Community Feeds List
  */
