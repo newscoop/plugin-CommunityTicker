@@ -46,6 +46,8 @@ class CommunityFeedService
             'user' => $user,
             'params' => $params,
         ));
+
+        $this->em->flush();
     }
 
     /**
