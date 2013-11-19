@@ -22,7 +22,7 @@ function smarty_block_list_community_feeds($params, $content, &$smarty, &$repeat
 {
     $context = $smarty->getTemplateVars('gimme');
 
-    if (!isset($content)) { //init
+    if (!isset($content)) { // init
         $start = $context->next_list_start('Newscoop\CommunityTickerBundle\TemplateList\CommunityFeedsList');
         $list = \Zend_Registry::get('container')->get('newscoop.template_lists.communityticker');
         $list->getList($start, $params);
@@ -33,13 +33,13 @@ function smarty_block_list_community_feeds($params, $content, &$smarty, &$repeat
             return;
         }
 
-        $context->setCurrentList($list, array('community_ticker_feed'));
-        $context->community_ticker_feed = $context->current_community_ticker_list->current;
+        $context->setCurrentList($list, array('community_feed'));
+        $context->community_feed = $context->current_community_feeds_list->current;
         $repeat = true;
     } else { // next
-        $context->current_community_ticker_list->defaultIterator()->next();
-        if (!is_null($context->current_community_ticker_list->current)) {
-            $context->community_ticker_feed = $context->current_community_ticker_list->current;
+        $context->current_community_feeds_list->defaultIterator()->next();
+        if (!is_null($context->current_community_feeds_list->current)) {
+            $context->community_feed = $context->current_community_feeds_list->current;
             $repeat = true;
         } else {
             $context->resetCurrentList();

@@ -1,28 +1,32 @@
 <?php
 /**
- * @package CommunityTickerBundle
- * @author Rafał Muszyński <rafal.muszynski@sourcefabric.org>
+ * @package Newscoop\CommunityTickerBundle
+ * @author Paweł Mikołajczuk <pawel.mikolajczuk@sourcefabric.org>
  * @copyright 2013 Sourcefabric o.p.s.
  * @license http://www.gnu.org/licenses/gpl-3.0.txt
  */
 
 namespace Newscoop\CommunityTickerBundle\EventListener;
 
-use Newscoop\EventDispatcher\Events\ListObjectsEvent;
+use Newscoop\EventDispatcher\Events\CollectObjectsDataEvent;
 
 class ListObjectsListener
 {
     /**
      * Register plugin list objects in Newscoop
      * 
-     * @param  ListObjectsEvent $event
+     * @param  CollectObjectsDataEvent $event
      */
-    public function registerListObject(ListObjectsEvent $event)
+    public function registerObjects(CollectObjectsDataEvent $event)
     {
         $event->registerListObject('newscoop\communitytickerbundle\templatelist\communityfeeds', array(
-            'class' => 'Newscoop\CommunityTickerBundle\TemplateList\communityfeeds',
-            'list' => 'community_ticker',
-            'url_id' => 'ctid',
+            'class' => 'Newscoop\CommunityTickerBundle\TemplateList\CommunityFeeds',
+            'list' => 'community_feeds',
+            'url_id' => 'cmfid',
+        ));
+
+        $event->registerObjectTypes('changeItToMetaClassHolder', array(
+            'class' => '\Namespaced\Meta\Class'
         ));
     }
 }

@@ -30,8 +30,12 @@ class CommunityTickerEventRepository extends EntityRepository
         $event->setParams(isset($values['params']) ? $values['params'] : array());
 
         if (!empty($values['user'])) {
-            $user = is_int($values['user']) ?
-                $this->getEntityManager()->getReference('Newscoop\Entity\User', $values['user']) : $values['user'];
+            $user = $values['user'];
+
+            if (is_int($user)) {
+                $user = $this->getEntityManager()->getReference('Newscoop\Entity\User', $values['user']);
+            }
+
             $event->setUser($user);
         }
 
