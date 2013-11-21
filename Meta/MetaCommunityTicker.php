@@ -68,11 +68,25 @@ class MetaCommunityTicker
         $this->article = $this->getArticle();
     }
 
+    /**
+     * Get user
+     *
+     * @param CommunityTickerEvent $feed
+     *
+     * @return string
+     */
     protected function getUser($feed)
     {   
         return $feed->getUser() ? new \MetaUser($feed->getUser()) : null;
     }
 
+    /**
+     * Get created date
+     *
+     * @param CommunityTickerEvent $feed
+     *
+     * @return string
+     */
     protected function getCreated($feed)
     {
         $date = $feed->getCreated();
@@ -81,7 +95,7 @@ class MetaCommunityTicker
     }
 
     /**
-     * Get recommended or new comment
+     * Get comment
      *
      * @return MetaComment|null
      */
