@@ -51,6 +51,11 @@ class MetaCommunityTicker
      */
     public $user;
 
+    /** 
+     * @var MetaTopic
+     */
+    public $topic;
+
     /**
      * @param CommunityTickerEvent $feed
      */
@@ -66,6 +71,7 @@ class MetaCommunityTicker
         $this->comment = $this->getComment();
         $this->created = $this->getCreated($feed);
         $this->article = $this->getArticle();
+        $this->topic = $this->getTopic();
     }
 
     /**
@@ -112,5 +118,15 @@ class MetaCommunityTicker
     protected function getArticle()
     {
         return !empty($this->params['number']) ? new \MetaArticle($this->params['language'], $this->params['number']) : null;
+    }
+
+    /**
+     * Get topic
+     *
+     * @return MetaTopic|null
+     */
+    protected function getTopic()
+    {  
+        return !empty($this->params['topic_id']) ? new \MetaTopic($this->params['topic_id']) : null;
     }
 }
