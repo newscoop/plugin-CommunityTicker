@@ -10,6 +10,7 @@ namespace Newscoop\CommunityTickerBundle\TemplateList;
 
 use Newscoop\ListResult;
 use Newscoop\TemplateList\BaseList;
+use Newscoop\CommunityTickerBundle\Meta\MetaCommunityTicker;
 
 /**
  * Community Feeds List
@@ -28,7 +29,7 @@ class CommunityFeedsList extends BaseList
         $service = \Zend_Registry::get('container')->get('newscoop_ticker_plugin.service');
         $lists = $service->findByCriteria($criteria);
         foreach ($lists as $key => $feed) {
-            $lists->items[$key] = new \MetaCommunityFeed($feed);
+            $lists->items[$key] = new MetaCommunityTicker($feed);
         }
 
         return $lists;

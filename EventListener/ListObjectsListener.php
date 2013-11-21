@@ -25,8 +25,8 @@ class ListObjectsListener
             'url_id' => 'cmfid',
         ));
 
-        $event->registerObjectTypes('changeItToMetaClassHolder', array(
-            'class' => '\Namespaced\Meta\Class'
+        $event->registerObjectTypes('community_feed', array(
+            'class' => '\Newscoop\CommunityTickerBundle\Meta\MetaCommunityTicker'
         ));
     }
 }
