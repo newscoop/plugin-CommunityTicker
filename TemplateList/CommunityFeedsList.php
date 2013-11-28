@@ -52,7 +52,7 @@ class CommunityFeedsList extends BaseList
         if (array_key_exists('length', $parameters)) {
             $parameter = (int) $parameters['length'];
             if ($parameter < 0) {
-                throw new \Exception("Invalid value of parameter \"length\" in statement list_community_ticker", 1);
+                throw new \Exception("Invalid value of parameter \"length\" in statement list_community_feeds", 1);
             }
 
             $this->criteria->length = $parameter;
