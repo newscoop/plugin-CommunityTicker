@@ -33,5 +33,5 @@ class ListCriteria extends Criteria
     /**
      * @var array
      */
-    public $orderBy = array('created' => 'asc');
+    public $created = array('created' => 'asc');
 }
