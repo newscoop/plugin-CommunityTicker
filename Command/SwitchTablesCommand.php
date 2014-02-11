@@ -32,7 +32,7 @@ class SwitchTablesCommand extends ContainerAwareCommand
     {
         try {
             $em = $this->getApplication()->getKernel()->getContainer()->getService('em');
-            $this->migrateData($em);
+            $this->migrateData($em, $output);
 
             $connection = $em->getConnection();
             $connection->beginTransaction();
@@ -55,11 +55,12 @@ class SwitchTablesCommand extends ContainerAwareCommand
     /**
      * Migrate data to plugin database from core table
      *
-     * @param EntityManager $em
+     * @param EntityManager   $em
+     * @param OutputInterface $output
      *
      * @return void
      */
-    public function migrateData($em)
+    public function migrateData($em, $output)
     {
         $rsm = new ResultSetMapping();
         $rsm->addEntityResult('Newscoop\CommunityTickerBundle\Entity\CommunityTickerEvent', 'e');
