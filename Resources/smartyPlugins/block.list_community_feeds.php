@@ -24,7 +24,7 @@ function smarty_block_list_community_feeds($params, $content, &$smarty, &$repeat
 
     if (!isset($content)) { // init
         $start = $context->next_list_start('Newscoop\CommunityTickerBundle\TemplateList\CommunityFeedsList');
-        $list = \Zend_Registry::get('container')->get('newscoop.template_lists.communityticker');
+        $list = new \Newscoop\CommunityTickerBundle\TemplateList\CommunityFeedsList(new \Newscoop\CommunityTickerBundle\TemplateList\ListCriteria());
         $list->getList($start, $params);
         if ($list->isEmpty()) {
             $context->setCurrentList($list, array());
