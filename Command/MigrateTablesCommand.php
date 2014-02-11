@@ -17,15 +17,15 @@ use Doctrine\ORM\Query\ResultSetMapping;
 use Newscoop\CommunityTickerBundle\Entity\CommunityTickerEvent;
 
 /**
- * Switch community ticker tables and remove old one
+ * Migrate community ticker data to plugin table
  */
-class SwitchTablesCommand extends ContainerAwareCommand
+class MigrateTablesCommand extends ContainerAwareCommand
 {
     protected function configure()
     {
         $this
-            ->setName('ticker:switch')
-            ->setDescription('Switches community ticker tables with events and remove old one from core.');
+            ->setName('ticker:migrate')
+            ->setDescription('Migrates community ticker data to plugin table and removes old one from core.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
