@@ -75,11 +75,13 @@ class CommunityTickerEvent
      * Set event
      *
      * @param string $event
+     *
      * @return Newscoop\CommunityTickerBundle\Entity\CommunityTickerEvent
      */
     public function setEvent($event)
     {
         $this->event = $event;
+
         return $this;
     }
 
@@ -97,11 +99,13 @@ class CommunityTickerEvent
      * Set params
      *
      * @param array $params
+     *
      * @return Newscoop\CommunityTickerBundle\Entity\CommunityTickerEvent
      */
     public function setParams(array $params)
     {
         $this->params = json_encode($params);
+
         return $this;
     }
 
@@ -126,6 +130,20 @@ class CommunityTickerEvent
     }
 
     /**
+     * Set created
+     *
+     * @param DateTime $created
+     *
+     * @return DateTime
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
      * Get status
      *
      * @return boolean
@@ -139,12 +157,13 @@ class CommunityTickerEvent
      * Set status
      *
      * @param boolean $is_active
+     *
      * @return boolean
      */
     public function setIsActive($is_active)
     {
         $this->is_active = $is_active;
-        
+
         return $this;
     }
 
@@ -152,6 +171,7 @@ class CommunityTickerEvent
      * Set user
      *
      * @param  Newscoop\Entity\User $user
+     *
      * @return Newscoop\CommunityTickerBundle\Entity\CommunityTickerEvent
      */
     public function setUser(User $user)
@@ -169,33 +189,5 @@ class CommunityTickerEvent
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * Check if the feed message exists.
-     * Test if there is set an id
-     *
-     * @return bool
-     * @deprecated legacy from frontend controllers
-     */
-    public function exists()
-    {
-        return !is_null($this->id);
-    }
-
-    /**
-     * Get an enity property
-     *
-     * @param $key
-     * @return mixed
-     * @deprecated legacy from frontend controllers
-     */
-    public function getProperty($key)
-    {
-        if (method_exists($this, $p_key)) {
-            return $this->$p_key();
-        } else {
-            throw new \InvalidArgumentException("Community Ticker Property $key not found");
-        }
     }
 }
