@@ -77,15 +77,24 @@ class MigrateTablesCommand extends ContainerAwareCommand
         $events = $query->getArrayResult();
         foreach ($events as $key => $event) {
             $user = $em->getRepository('Newscoop\Entity\User')->findOneBy(array('id' => $event['user']['id']));
-            $newEvent = new CommunityTickerEvent();
-            $newEvent->setEvent($event['event']);
-            $newEvent->setParams($event['params'] != '[]' ? json_decode($event['params'], true) : array());
-            $newEvent->setCreated($event['created']);
-            $newEvent->setIsActive(true);
-            if ($user) {
-                $newEvent->setUser($user);
+            $existingEvent = $em->getRepository('Newscoop\CommunityTickerBundle\Entity\CommunityTickerEvent')
+                ->findOneBy(array(
+                    'created' => $event['created'],
+                    'params' => $event['params']
+            ));
+
+            if (!$existingEvent) {
+                $newEvent = new CommunityTickerEvent();
+                $newEvent->setEvent($event['event']);
+                $newEvent->setParams($event['params'] != '[]' ? json_decode($event['params'], true) : array());
+                $newEvent->setCreated($event['created']);
+                $newEvent->setIsActive(true);
+                if ($user) {
+                    $newEvent->setUser($user);
+                }
+
+                $em->persist($newEvent);
             }
-            $em->persist($newEvent);
         }
 
         $em->flush();
