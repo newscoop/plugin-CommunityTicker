@@ -24,7 +24,7 @@ class CommunityFeedsList extends BaseList
      * 
      * @return ListResult
      */
-    protected function prepareList($criteria)
+    protected function prepareList($criteria, $params)
     {   
         $service = \Zend_Registry::get('container')->get('newscoop_ticker_plugin.service');
         $lists = $service->findByCriteria($criteria);
