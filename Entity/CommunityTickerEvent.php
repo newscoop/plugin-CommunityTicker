@@ -12,12 +12,12 @@ use Newscoop\Entity\User;
 
 /**
  * @ORM\Entity(repositoryClass="Newscoop\CommunityTickerBundle\Entity\Repository\CommunityTickerEventRepository")
- * @ORM\Table(name="plugin_community_ticker_event")
+ * @ORM\Table(name="community_ticker_event")
  */
 class CommunityTickerEvent
 {
     /**
-     * @ORM\Id 
+     * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * @var int
@@ -170,7 +170,7 @@ class CommunityTickerEvent
     /**
      * Set user
      *
-     * @param  Newscoop\Entity\User $user
+     * @param Newscoop\Entity\User $user
      *
      * @return Newscoop\CommunityTickerBundle\Entity\CommunityTickerEvent
      */
